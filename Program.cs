@@ -9,3 +9,46 @@ ser mudado livremente. Um salário só pode ser aumentado com base em uma opera�
 aumento por porcentagem dada.
 */
 
+using exercicioListas;
+using System.Globalization;
+
+Console.Write("How many employees will be registered? ");
+int n = int.Parse(Console.ReadLine());
+
+List<Employee> employees = new List<Employee>();
+
+for(int i = 1; i <= n; i++)
+{
+    Console.WriteLine("Employee #" + i + " :");
+    Console.Write("ID: ");
+    int id = int.Parse(Console.ReadLine());
+    Console.Write("Name: ");
+    string name = Console.ReadLine();
+    Console.Write("Salary: ");
+    double salary = double.Parse(Console.ReadLine());
+    employees.Add(new Employee(id, name, salary));
+    Console.WriteLine();
+}
+
+Console.Write("Enter de employee id that will have salary increase: ");
+int idSearch = int.Parse(Console.ReadLine());
+
+Employee emp = employees.Find(x => x.Id == idSearch);
+if(emp != null)
+{
+    Console.Write("Enter the percentage: ");
+    double percentage = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+    emp.increaseSalary(percentage);
+}
+else
+{
+    Console.WriteLine("This id does not exist!");
+}
+
+
+
+Console.WriteLine("Update");
+foreach(Employee obj in employees)
+{
+    Console.WriteLine(obj);
+}
