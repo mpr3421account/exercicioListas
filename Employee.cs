@@ -20,7 +20,7 @@ namespace exercicioListas
             Salary = salary;
         }
 
-        public void increaseSalary(double percentage)
+        public void IncreaseSalary(double percentage)
         {
             Salary += Salary * percentage / 100.0;
         }

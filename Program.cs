@@ -25,7 +25,7 @@ for(int i = 1; i <= n; i++)
     Console.Write("Name: ");
     string name = Console.ReadLine();
     Console.Write("Salary: ");
-    double salary = double.Parse(Console.ReadLine());
+    double salary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
     employees.Add(new Employee(id, name, salary));
     Console.WriteLine();
 }
@@ -38,7 +38,7 @@ if(emp != null)
 {
     Console.Write("Enter the percentage: ");
     double percentage = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-    emp.increaseSalary(percentage);
+    emp.IncreaseSalary(percentage);
 }
 else
 {
